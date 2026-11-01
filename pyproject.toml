@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sealedlog"
+version = "0.1.0"
+description = "A tamper-evident, append-only log: every entry is hash-chained to the one before it, so any change breaks the seals. Pure standard library."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Nirry", email = "labs@nirry.net" }]
+keywords = [
+    "audit-log",
+    "tamper-evident",
+    "hash-chain",
+    "integrity",
+    "provenance",
+    "sha256",
+    "hmac",
+    "security",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: System :: Logging",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://nirry.net"
+Source = "https://github.com/nirry-dev/sealedlog"
+Issues = "https://github.com/nirry-dev/sealedlog/issues"
+
+[project.scripts]
+sealedlog = "sealedlog.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sealedlog"]
+
+[tool.hatch.build.targets.sdist]
+include = ["sealedlog", "tests", "README.md", "LICENSE", "CHANGELOG.md"]
